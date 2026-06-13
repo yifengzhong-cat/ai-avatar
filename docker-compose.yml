@@ -1,0 +1,19 @@
+version: "3.8"
+
+services:
+  ai-avatar:
+    build: .
+    container_name: ai-avatar
+    ports:
+      - "8501:8501"
+    env_file:
+      - .env
+    volumes:
+      # 持久化知识库数据（容器重启不丢失）
+      - ./data/chromadb:/app/data/chromadb
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "--fail", "http://localhost:8501/_stcore/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3

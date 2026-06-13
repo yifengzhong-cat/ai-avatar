@@ -1,0 +1,30 @@
+# ============================================
+# Git忽略文件 - AI数字分身
+# ============================================
+
+# 敏感配置（永远不要上传到GitHub！）
+.env
+.streamlit/secrets.toml
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+venv/
+.venv/
+
+# 系统文件
+.DS_Store
+Thumbs.db
+
+# 数据文件
+data/*.db
+data/*.json
+data/chromadb/
+data/users.db
+
+# IDE
+.vscode/
+.idea/
